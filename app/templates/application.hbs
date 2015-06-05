@@ -1,0 +1,18 @@
+{{d3-bubble-chart
+  data=bubbleChartData
+  interpolation=interpolation}}
+
+<div class="menu">
+  {{view "select"
+    content=interpolationOptions
+    value=interpolation}}
+  {{view "select"
+    content=maxItemsOptions
+    value=maxItems}}
+  <button {{action 'refresh'}}>Refresh</button>
+</div>
+
+<h3>Data</h3>
+<div class="data">
+  {{bubbleChartData}}
+</div>
