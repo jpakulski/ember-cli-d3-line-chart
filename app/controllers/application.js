@@ -1,17 +1,19 @@
 import Ember from 'ember';
 
 export default Ember.Controller.extend({
-  bubbleChartData: [],
+  lineChartData: [],
   interpolationOptions: ['linear', 'monotone'],
   interpolation: 'monotone',
-  maxItemsOptions: [10, 50, 100, 1000],
+  maxItemsOptions: [2, 5, 10, 50, 100],
   maxItems: 10,
+  strokeWidthOptions: [1, 2, 3, 4, 5, 10],
+  strokeWidth: 3,
 
   init: function() {
-    this.set('bubbleChartData', this.getFreshBubbleChartData());
+    this.set('lineChartData', this.getFreshData());
   },
 
-  getFreshBubbleChartData: function() {
+  getFreshData: function() {
     var arr = [],
         maxValue = 1000;
 
@@ -23,7 +25,7 @@ export default Ember.Controller.extend({
   },
 
   refresh: function() {
-    this.set('bubbleChartData', this.getFreshBubbleChartData());
+    this.set('lineChartData', this.getFreshData());
   },
 
   actions: {

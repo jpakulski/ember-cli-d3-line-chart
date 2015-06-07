@@ -1,9 +1,10 @@
 svg {
-  border: 1px solid #eee;
+  border: 10px solid #098;
+  border-radius: 10px;
+  background: #098;
 }
 
 svg path {
   fill: none;
-  stroke: #0aa;
-  stroke-width: 1.5px;
+  stroke: #fff;
 }

@@ -4,6 +4,7 @@ export default Ember.Component.extend({
   height: 200,
   width: 500,
   interpolation: 'monotone',
+  strokeWidth: 3,
   data: [],
 
   x: (function() {
@@ -15,12 +16,14 @@ export default Ember.Component.extend({
   }).property('data.length', 'width'),
 
   y: (function() {
+    var strokeWidth = this.get('strokeWidth');
+
     return d3
       .scale
       .linear()
-      .range([this.get('height') - 4, 2])
+      .range([this.get('height') - strokeWidth * 2, strokeWidth])
       .domain(d3.extent(this.get('data')));
-  }).property('data', 'height'),
+  }).property('data', 'height', 'strokeWidth'),
 
   line: (function() {
     var x = this.get('x'),
@@ -36,5 +39,10 @@ export default Ember.Component.extend({
         return y(d);
       })
       .interpolate(interpolation)(data);
-  }).property('x', 'y', 'data', 'interpolation')
+  }).property('x', 'y', 'data', 'interpolation'),
+
+  lineStyle: (function() {
+    var strokeWidth = this.get('strokeWidth');
+    return ('stroke-width: ' + strokeWidth + 'px').htmlSafe();
+  }).property('strokeWidth')
 });
