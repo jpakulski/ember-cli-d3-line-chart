@@ -1,15 +1,11 @@
 {{d3-line-chart
   data=lineChartData
-  interpolation=interpolation
-  strokeWidth=strokeWidth}}
+  interpolation=interpolation}}
 
 <div class="menu">
   {{view "select"
     content=interpolationOptions
     value=interpolation}}
-  {{view "select"
-    content=strokeWidthOptions
-    value=strokeWidth}}
   {{view "select"
     content=maxItemsOptions
     value=maxItems}}

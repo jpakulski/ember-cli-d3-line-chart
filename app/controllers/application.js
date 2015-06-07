@@ -6,8 +6,6 @@ export default Ember.Controller.extend({
   interpolation: 'monotone',
   maxItemsOptions: [2, 5, 10, 50, 100],
   maxItems: 10,
-  strokeWidthOptions: [1, 2, 3, 4, 5, 10],
-  strokeWidth: 3,
 
   init: function() {
     this.set('lineChartData', this.getFreshData());
